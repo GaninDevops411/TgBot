@@ -2,6 +2,7 @@ import telebot
 import random
 
 token = '7542323404:AAFmM8-AcwdfBv92ANh-mrmhxVecen92zeU'
+
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
@@ -9,9 +10,11 @@ def start(message):
     text = 'Привет! Это Рандомезноу. Напиши /help чтобы увидеть больше команд'
     bot.send_message(message.chat.id, text)
 
+
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.send_message(message.chat.id, "/random")
+
 
 @bot.message_handler(commands=['random'])
 def randomcomand(message):
@@ -21,9 +24,14 @@ def randomcomand(message):
 
 @bot.message_handler(commands=['randomgame'])
 def randomgame(message):
-    games = ['cs2', 'valorant', 'terraria', 'lethal company', 'Phasmaphobia', 'Genshin Impact', 'Dota 2', 'Pubg', 'LoL']
+    games = ['cs2\n https://store.steampowered.com/app/730/CounterStrike_2/','valorant\n https://playvalorant.com/ru-ru/','terraria\n https://store.steampowered.com/app/105600/Terraria/','lethal company\n https://store.steampowered.com/app/1966720/Lethal_Company/','Phasmaphobia\n https://store.steampowered.com/app/739630/Phasmophobia/','Genshin Impact\n https://genshin.hoyoverse.com/ru/','Dota 2\n https://store.steampowered.com/app/570/Dota_2/','Pubg\n https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/','LoL\n https://www.leagueoflegends.com/ru-ru/download/']
     game = games[random.randint(0, len(games) - 1)]
     bot.send_message(message.chat.id, game)
+
+@bot.message_handler(commands=['!Бот_еблан'])
+def randomcomand(message):
+        text = 'Сам еблан!'
+        bot.send_message(message.chat.id, text)
 
 @bot.message_handler(commands=['randomnumber'])
 def randomnuber(message):
