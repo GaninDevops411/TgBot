@@ -2,7 +2,6 @@ import telebot
 import random
 
 token = '7542323404:AAFmM8-AcwdfBv92ANh-mrmhxVecen92zeU'
-
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
@@ -10,11 +9,9 @@ def start(message):
     text = 'Привет! Это Рандомезноу. Напиши /help чтобы увидеть больше команд'
     bot.send_message(message.chat.id, text)
 
-
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.send_message(message.chat.id, "/random")
-
 
 @bot.message_handler(commands=['random'])
 def randomcomand(message):
@@ -41,7 +38,5 @@ def randomnuber(message):
             return
 
     bot.send_message(message.chat.id, 'Неправильная команда')
-    
-
 
 bot.infinity_polling(none_stop=True)
