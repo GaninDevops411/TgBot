@@ -1,7 +1,14 @@
 import telebot
 import random
+import os
+from dotenv import load_dotenv
 
-token = '7542323404:AAFmM8-AcwdfBv92ANh-mrmhxVecen92zeU'
+load_dotenv()
+
+token = os.getenv("TOKEN")
+
+if not token:
+    raise ValueError("Токен не найден. Проверьте файл .env и переменную TOKEN.")
 
 bot = telebot.TeleBot(token)
 
