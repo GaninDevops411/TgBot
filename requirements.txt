@@ -1,0 +1,10 @@
+browser-cookie3==0.19.1
+certifi==2024.8.30
+charset-normalizer==3.3.2
+genshinstats==1.4.11.3
+idna==3.10
+lz4==4.3.3
+pycryptodomex==3.21.0
+pyTelegramBotAPI==4.26.0
+requests==2.32.3
+urllib3==2.2.3
