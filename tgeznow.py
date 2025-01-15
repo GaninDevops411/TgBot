@@ -31,7 +31,7 @@ def randomcomand(message):
 
 @bot.message_handler(commands=['randomgame'])
 def randomgame(message):
-    games = ['cs2\n https://store.steampowered.com/app/730/CounterStrike_2/','valorant\n https://playvalorant.com/ru-ru/','terraria\n https://store.steampowered.com/app/105600/Terraria/','lethal company\n https://store.steampowered.com/app/1966720/Lethal_Company/','Phasmaphobia\n https://store.steampowered.com/app/739630/Phasmophobia/','Genshin Impact\n https://genshin.hoyoverse.com/ru/','Dota 2\n https://store.steampowered.com/app/570/Dota_2/','Pubg\n https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/','LoL\n https://www.leagueoflegends.com/ru-ru/download/']
+    games = ['cs2\nhttps://store.steampowered.com/app/730/CounterStrike_2/','valorant\nhttps://playvalorant.com/ru-ru/','terraria\nhttps://store.steampowered.com/app/105600/Terraria/','lethal company\nhttps://store.steampowered.com/app/1966720/Lethal_Company/','Phasmaphobia\nhttps://store.steampowered.com/app/739630/Phasmophobia/','Genshin Impact\nhttps://genshin.hoyoverse.com/ru/','Dota 2\nhttps://store.steampowered.com/app/570/Dota_2/','Pubg\nhttps://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/','LoL\nhttps://www.leagueoflegends.com/ru-ru/download/']
     game = games[random.randint(0, len(games) - 1)]
     bot.send_message(message.chat.id, game)
 
