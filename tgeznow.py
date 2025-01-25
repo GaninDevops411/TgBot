@@ -57,15 +57,12 @@ def disfix(message):
     file_path = r"C:\Users\artem\Downloads\YouTubeFix.rar"
 
     try:
-        # Проверяем, существует ли файл
-        if os.path.exists(file_path):
-            with open(file_path, "rb") as file:
-                bot.send_document(message.chat.id, file)  # Отправляем файл
-            bot.reply_to(message)
-        else:
-            bot.reply_to(message)
+        with open(file_path, "rb") as file:
+            bot.send_document(message.chat.id, file)  # Отправляем только файл
+    except FileNotFoundError:
+        bot.send_message(message.chat.id, "Файл не найден. Проверьте путь.")
     except Exception as e:
-        bot.reply_to(message)
+        bot.send_message(message.chat.id, f"Произошла ошибка: {e}")
 
 
 # Запускаем бота
