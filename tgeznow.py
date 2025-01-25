@@ -21,6 +21,7 @@ def start(message):
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.send_message(message.chat.id, "/random")
+    bot.send_message(message.chat.id, "/disfix")
 
 
 @bot.message_handler(commands=['random'])
@@ -35,9 +36,9 @@ def randomgame(message):
     game = games[random.randint(0, len(games) - 1)]
     bot.send_message(message.chat.id, game)
 
-@bot.message_handler(commands=['!Бот_еблан'])
+@bot.message_handler(commands=['!Бот_еб**н'])
 def randomcomand(message):
-        text = 'Сам еблан!'
+        text = 'Сам еб**н!'
         bot.send_message(message.chat.id, text)
 
 @bot.message_handler(commands=['randomnumber'])
@@ -54,4 +55,27 @@ def randomnuber(message):
 
     bot.send_message(message.chat.id, 'Неправильная команда')
 
-bot.infinity_polling(none_stop=True)
+
+@bot.message_handler(commands=['disfix'])
+def disfix(message):
+    # Путь к файлу
+    file_path = r"C:\Users\artem\Downloads\YouTubeFix.rar"
+
+    try:
+        # Проверяем, существует ли файл
+        if os.path.exists(file_path):
+            with open(file_path, "rb") as file:
+                bot.send_document(message.chat.id, file)  # Отправляем файл
+            bot.reply_to(message, "Файл успешно отправлен!")
+        else:
+            bot.reply_to(message, "Файл не найден. Проверьте путь.")
+    except Exception as e:
+        bot.reply_to(message, f"Произошла ошибка: {e}")
+
+
+# Запускаем бота
+print("Бот запущен и ожидает сообщений...")
+bot.polling()
+
+
+
