@@ -20,26 +20,21 @@ def start(message):
 
 @bot.message_handler(commands=['help'])
 def help(message):
-    bot.send_message(message.chat.id, "/random")
-    bot.send_message(message.chat.id, "/disfix")
+    bot.send_message(message.chat.id, "/random - отправляет в список, где вам нужно выбрать команды для рандома игр и рандома чисел \n\n/disfix - отправляет файл для разблокировки ютуба и дискорда")
 
 
 @bot.message_handler(commands=['random'])
 def randomcomand(message):
-    text = 'Что ты хочешь зарандомить?\n/randomgame\n/randomnumbers'
+    text = 'Что ты хочешь зарандомить?\n/randomgames\n/randomnumbers'
     #\n - перенос строки
     bot.send_message(message.chat.id, text)
 
-@bot.message_handler(commands=['randomgame'])
+@bot.message_handler(commands=['randomgames'])
 def randomgame(message):
-    games = ['cs2\n https://store.steampowered.com/app/730/CounterStrike_2/','valorant\n https://playvalorant.com/ru-ru/','terraria\n https://store.steampowered.com/app/105600/Terraria/','lethal company\n https://store.steampowered.com/app/1966720/Lethal_Company/','Phasmaphobia\n https://store.steampowered.com/app/739630/Phasmophobia/','Genshin Impact\n https://genshin.hoyoverse.com/ru/','Dota 2\n https://store.steampowered.com/app/570/Dota_2/','Pubg\n https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/','LoL\n https://www.leagueoflegends.com/ru-ru/download/']
+    games = ['cs2\nhttps://store.steampowered.com/app/730/CounterStrike_2/','valorant\nhttps://playvalorant.com/ru-ru/','terraria\nhttps://store.steampowered.com/app/105600/Terraria/','lethal company\nhttps://store.steampowered.com/app/1966720/Lethal_Company/','Phasmaphobia\nhttps://store.steampowered.com/app/739630/Phasmophobia/','Genshin Impact\nhttps://genshin.hoyoverse.com/ru/','Dota 2\nhttps://store.steampowered.com/app/570/Dota_2/','Pubg\nhttps://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/','LoL\nhttps://www.leagueoflegends.com/ru-ru/download/']
     game = games[random.randint(0, len(games) - 1)]
     bot.send_message(message.chat.id, game)
 
-@bot.message_handler(commands=['!Бот_еб**н'])
-def randomcomand(message):
-        text = 'Сам еб**н!'
-        bot.send_message(message.chat.id, text)
 
 @bot.message_handler(commands=['randomnumber'])
 def randomnuber(message):
@@ -66,11 +61,11 @@ def disfix(message):
         if os.path.exists(file_path):
             with open(file_path, "rb") as file:
                 bot.send_document(message.chat.id, file)  # Отправляем файл
-            bot.reply_to(message, "Файл успешно отправлен!")
+            bot.reply_to(message)
         else:
-            bot.reply_to(message, "Файл не найден. Проверьте путь.")
+            bot.reply_to(message)
     except Exception as e:
-        bot.reply_to(message, f"Произошла ошибка: {e}")
+        bot.reply_to(message)
 
 
 # Запускаем бота
